@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <vector>
+#include <cctype>
+#include <ctime>
+using namespace std;
+
+int main(){
+srand(time(0));
+int random = rand()%3;
+
+string choice;
+vector <string> c = {"paper", "rock", "scissors"};
+
+cout << "Choose rock, paper, or scissors \n";
+cin >> choice;
+for (char &c : choice) {
+    c = tolower(c);
+}
+cout << "The computer chose " << c[random] << " and you chose " << choice << "\n";
+
+// 0 represents paper, 1 represents rock, 2 represents scissors for the computer
+
+if(random == 0 && choice == "rock" || random == 1 && choice == "scissors" || random == 2 && choice == "paper"){
+    cout << "You lose!\n";
+}
+else if(random == 0 && choice == "scissors" || random == 1 && choice == "paper" || random == 2 && choice == "rock"){
+    cout << "You win!\n";
+}
+else if(random == 0 && choice == "paper" || random == 1 && choice == "rock" || random == 2 && choice == "scissors"){
+    cout << "It's a draw.\n";
+}
+else{
+    cout << "Please enter a valid option.\n";
+}
+ return 0;
+}
